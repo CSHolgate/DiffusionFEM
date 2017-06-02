@@ -9,7 +9,7 @@ import fenics
 import numpy
 from subprocess import call
 
-T = 3600.0
+T = 3480.0
 num_steps = 300
 dt = T/num_steps
 
@@ -17,7 +17,7 @@ dt = T/num_steps
 def Diff(u):
 	"Return nonlinear coefficient"
 	#return 5.0E-6 * (1.0 - 0.36*u + ((0.36*u)**2.0)/2.0)
-	return 2.9576E-6 * fenics.exp(-0.073*u)
+	return 6.215629E-6 * fenics.exp(-0.19914*u)
 
 
 
@@ -30,7 +30,7 @@ tol = 1.0E-14
 
 # Define the boundary condition
 # Including mixed Neumann (0 at boundaries) and Dirichlet conditions
-u_D = Expression('11.42 * (1 - exp(-30000 * t))', degree=2, t=0) # POSSIBLE ISSUE IN DEGREE
+u_D = Expression('2.8625716 * (1 - exp(-30000 * t))', degree=2, t=0) # POSSIBLE ISSUE IN DEGREE
 
 def boundary_D(x, on_boundary):
 	if on_boundary:
